@@ -1,4 +1,4 @@
-import type { SortType, SuccessResponseModel } from './interface/global.interface';
+import type { SortType, StringKeyedObject, SuccessResponseModel } from './interface/global.interface';
 import type { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
 
 import { Injectable } from '@nestjs/common';
@@ -33,9 +33,9 @@ export class SuccessInterceptor<T = any> implements NestInterceptor {
     }
   }
 
-  private sortObjectKeys(obj: Record<string, any>, sortType: SortType): Record<string, any> {
+  private sortObjectKeys(obj: StringKeyedObject, sortType: SortType): StringKeyedObject {
     let keys: string[] = Object.keys(obj);
-    const sortedObj: Record<string, any> = {};
+    const sortedObj: StringKeyedObject = {};
 
     if ('id' in obj) {
       const keysWithId = keys.filter((key) => key === 'id');

@@ -14,3 +14,5 @@ export interface ErrorResponseModel extends ResponseMap {
 }
 
 export type SortType = 'asc' | 'desc';
+
+export type StringKeyedObject = Record<string, any>;
